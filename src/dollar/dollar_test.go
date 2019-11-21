@@ -15,3 +15,14 @@ func TestMultiplication(t *testing.T) {
 		t.Errorf("\nReturn the product of 5 and 3\nExpected: %d, Actual: %d", 15, product.Amount)
 	}
 }
+
+func TestEquality(t *testing.T) {
+	res1 := NewDollar(5).equals(NewDollar(5))
+	if res1 != true {
+		t.Errorf("\nReturn if 5 of Dollar equals 5 of Dollar\nExpected: %t, Actual: %t", true, res1)
+	}
+	res2 := NewDollar(5).equals(NewDollar(6))
+	if res2 == true {
+		t.Errorf("\nReturn if 5 of Dollar equals 6 of Dollar\nExpected: %t, Actual: %t", false, res2)
+	}
+}
