@@ -8,6 +8,6 @@ func NewDollar(amount int) *Dollar {
 	return &Dollar{Amount: amount}
 }
 
-func (this *Dollar) times(multiplier int) {
-	this.Amount = this.Amount * multiplier
+func (this *Dollar) Times(multiplier int) *Dollar {
+	return &Dollar{Amount: this.Amount * multiplier}
 }
