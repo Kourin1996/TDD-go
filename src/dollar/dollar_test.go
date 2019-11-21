@@ -1,4 +1,4 @@
-package doller
+package dollar
 
 import (
 	"testing"

@@ -1,4 +1,4 @@
-package doller
+package dollar
 
 type Dollar struct {
 	Amount int
