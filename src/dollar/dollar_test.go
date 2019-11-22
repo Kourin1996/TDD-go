@@ -6,13 +6,11 @@ import (
 
 func TestMultiplication(t *testing.T) {
 	five := NewDollar(5)
-	product := five.Times(2)
-	if product.Amount != 10 {
-		t.Errorf("\nReturn the product of 5 and 2\nExpected: %d, Actual: %d", 10, product.Amount)
+	if five.Times(2).Equals(NewDollar(10)) == false {
+		t.Errorf("\nReturns if product of 5 and 2 equals 10, but return false")
 	}
-	product = five.Times(3)
-	if product.Amount != 15 {
-		t.Errorf("\nReturn the product of 5 and 3\nExpected: %d, Actual: %d", 15, product.Amount)
+	if five.Times(3).Equals(NewDollar(15)) == false {
+		t.Errorf("\nReturns if product of 5 and 3 equals 15, but return false")
 	}
 }
 
