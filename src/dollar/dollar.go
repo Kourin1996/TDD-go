@@ -1,15 +1,15 @@
-package money
+package dollar
 
 type Dollar struct {
-	Money
+	amount int
 }
 
 func NewDollar(amount int) *Dollar {
-	return &Dollar{NewMoney(amount)}
+	return &Dollar{amount: amount}
 }
 
 func (this *Dollar) Times(multiplier int) *Dollar {
-	return &Dollar{NewMoney(this.amount * multiplier)}
+	return &Dollar{amount: this.amount * multiplier}
 }
 
 func (this *Dollar) Equals(that *Dollar) bool {
