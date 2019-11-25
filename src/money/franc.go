@@ -12,6 +12,6 @@ func (this *Franc) Times(multiplier int) *Franc {
 	return &Franc{Money: NewMoney(this.amount * multiplier)}
 }
 
-func (this *Franc) Equals(that *Franc) bool {
-	return this.Money.Equals(that.Money)
+func (this *Franc) GetCurrencyCode() string {
+	return "Franc"
 }
