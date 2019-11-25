@@ -1,15 +1,15 @@
-package franc
+package money
 
 type Franc struct {
-	amount int
+	Money
 }
 
 func NewFranc(amount int) *Franc {
-	return &Franc{amount: amount}
+	return &Franc{NewMoney(amount)}
 }
 
 func (this *Franc) Times(multiplier int) *Franc {
-	return &Franc{amount: this.amount * multiplier}
+	return &Franc{NewMoney(this.amount * multiplier)}
 }
 
 func (this *Franc) Equals(that *Franc) bool {
