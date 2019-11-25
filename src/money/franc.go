@@ -1,4 +1,4 @@
-package franc
+package money
 
 type Franc struct {
 	amount int
