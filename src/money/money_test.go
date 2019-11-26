@@ -14,3 +14,12 @@ func TestDollarFrancEquality(t *testing.T) {
 		t.Errorf("\nReturn if 5 of Franc equals 6 of Dollar\nExpected: %t, Actual: %t", false, res2)
 	}
 }
+
+func TestCurrency(t *testing.T) {
+	if currency := NewDollar(1).GetCurrency(); currency != "USD" {
+		t.Errorf("\nReturn currency of Dollar\nExpected: %s, Actual: %s", "USD", currency)
+	}
+	if currency := NewFranc(1).GetCurrency(); currency != "CHF" {
+		t.Errorf("\nReturn currency of Dollar\nExpected: %s, Actual: %s", "CHF", currency)
+	}
+}
