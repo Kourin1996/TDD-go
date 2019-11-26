@@ -4,11 +4,7 @@ type Dollar struct {
 	*Money
 }
 
-func NewDollar(amount int) *Dollar {
-	return &Dollar{Money: NewMoney(amount)}
-}
-
-func (this *Dollar) Times(multiplier int) *Dollar {
+func (this *Dollar) Times(multiplier int) IMoney {
 	return &Dollar{Money: NewMoney(this.amount * multiplier)}
 }
 
