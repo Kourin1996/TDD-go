@@ -4,14 +4,24 @@ import (
 	"testing"
 )
 
-func TestDollarFrancEquality(t *testing.T) {
-	res1 := Equals(NewDollar(5), NewFranc(5))
-	if res1 != false {
-		t.Errorf("\nReturn if 5 of Dollar equals 5 of Franc\nExpected: %t, Actual: %t", false, res1)
+func TestMultiplication(t *testing.T) {
+	if five := NewDollar(5); Equals(five.Times(3), NewDollar(10)) == true {
+		t.Errorf("\nReturns if product of 5 and 3 equals 10, but return true")
 	}
-	res2 := Equals(NewFranc(5), NewDollar(6))
-	if res2 != false {
-		t.Errorf("\nReturn if 5 of Franc equals 6 of Dollar\nExpected: %t, Actual: %t", false, res2)
+	if five := NewFranc(5); Equals(five.Times(2), NewFranc(10)) == false {
+		t.Errorf("\nReturns if product of 5 and 2 equals 10, but return false")
+	}
+}
+
+func TestEquality(t *testing.T) {
+	if res := Equals(NewDollar(5), NewDollar(5)); res != true {
+		t.Errorf("\nReturn if 5 of Dollar equals 5 of Dollar\nExpected: %t, Actual: %t", true, res)
+	}
+	if res := Equals(NewDollar(5), NewDollar(6)); res == true {
+		t.Errorf("\nReturn if 5 of Dollar equals 6 of Dollar\nExpected: %t, Actual: %t", false, res)
+	}
+	if res := Equals(NewFranc(5), NewDollar(5)); res != false {
+		t.Errorf("\nReturn if 5 of Franc equals 5 of Dollar\nExpected: %t, Actual: %t", false, res)
 	}
 }
 
