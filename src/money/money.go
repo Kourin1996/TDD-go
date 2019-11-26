@@ -1,5 +1,7 @@
 package money
 
+import "fmt"
+
 type IMoney interface {
 	GetAmount() int
 	GetCurrency() string
@@ -25,6 +27,14 @@ func (this *Money) GetAmount() int {
 
 func (this *Money) GetCurrency() string {
 	return this.currency
+}
+
+func (this *Money) Times(multiplier int) IMoney {
+	return NewMoney(this.amount*multiplier, this.currency)
+}
+
+func (this *Money) ToString() string {
+	return fmt.Sprintf("%d %s", this.amount, this.currency)
 }
 
 func NewDollar(amount int) *Dollar {
