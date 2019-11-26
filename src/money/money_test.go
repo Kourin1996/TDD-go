@@ -17,9 +17,9 @@ func TestDollarFrancEquality(t *testing.T) {
 
 func TestCurrency(t *testing.T) {
 	if currency := NewDollar(1).GetCurrency(); currency != "USD" {
-		t.Errorf("\nReturn currency of Dollar\nExpected: %t, Actual: %t", "USD", currency)
+		t.Errorf("\nReturn currency of Dollar\nExpected: %s, Actual: %s", "USD", currency)
 	}
 	if currency := NewFranc(1).GetCurrency(); currency != "CHF" {
-		t.Errorf("\nReturn currency of Dollar\nExpected: %t, Actual: %t", "CHF", currency)
+		t.Errorf("\nReturn currency of Dollar\nExpected: %s, Actual: %s", "CHF", currency)
 	}
 }

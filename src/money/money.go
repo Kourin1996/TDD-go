@@ -2,30 +2,35 @@ package money
 
 type IMoney interface {
 	GetAmount() int
-	GetCurrencyCode() string
+	GetCurrency() string
 	Times(int) IMoney
 }
 
 func Equals(a, b IMoney) bool {
-	return a.GetAmount() == b.GetAmount() && a.GetCurrencyCode() == b.GetCurrencyCode()
+	return a.GetAmount() == b.GetAmount() && a.GetCurrency() == b.GetCurrency()
 }
 
 type Money struct {
-	amount int
+	amount   int
+	currency string
 }
 
-func NewMoney(amount int) *Money {
-	return &Money{amount}
+func NewMoney(amount int, currency string) *Money {
+	return &Money{amount, currency}
 }
 
 func (this *Money) GetAmount() int {
 	return this.amount
 }
 
+func (this *Money) GetCurrency() string {
+	return this.currency
+}
+
 func NewDollar(amount int) *Dollar {
-	return &Dollar{Money: NewMoney(amount)}
+	return &Dollar{Money: NewMoney(amount, "USD")}
 }
 
 func NewFranc(amount int) *Franc {
-	return &Franc{Money: NewMoney(amount)}
+	return &Franc{Money: NewMoney(amount, "CHF")}
 }

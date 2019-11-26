@@ -5,9 +5,5 @@ type Dollar struct {
 }
 
 func (this *Dollar) Times(multiplier int) IMoney {
-	return &Dollar{Money: NewMoney(this.amount * multiplier)}
-}
-
-func (this *Dollar) GetCurrencyCode() string {
-	return "Dollar"
+	return NewDollar(this.amount * multiplier)
 }
