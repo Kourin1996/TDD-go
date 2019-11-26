@@ -37,10 +37,10 @@ func (this *Money) ToString() string {
 	return fmt.Sprintf("%d %s", this.amount, this.currency)
 }
 
-func NewDollar(amount int) *Dollar {
-	return &Dollar{Money: NewMoney(amount, "USD")}
+func NewDollar(amount int) IMoney {
+	return NewMoney(amount, "USD")
 }
 
-func NewFranc(amount int) *Franc {
-	return &Franc{Money: NewMoney(amount, "CHF")}
+func NewFranc(amount int) IMoney {
+	return NewMoney(amount, "CHF")
 }
