@@ -4,11 +4,7 @@ type Franc struct {
 	*Money
 }
 
-func NewFranc(amount int) *Franc {
-	return &Franc{Money: NewMoney(amount)}
-}
-
-func (this *Franc) Times(multiplier int) *Franc {
+func (this *Franc) Times(multiplier int) IMoney {
 	return &Franc{Money: NewMoney(this.amount * multiplier)}
 }
 
