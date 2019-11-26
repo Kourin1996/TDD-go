@@ -33,3 +33,10 @@ func TestCurrency(t *testing.T) {
 		t.Errorf("\nReturn currency of Dollar\nExpected: %s, Actual: %s", "CHF", currency)
 	}
 }
+
+func TestSimpleAddition(t *testing.T) {
+	sum := NewDollar(5).Plus(NewDollar(5))
+	if isEqual := Equals(sum, NewDollar(10)); isEqual != true {
+		t.Errorf("\nReturn sum of 5 Dollar and 5 Dollar equals 10 Dollar\nExpected: %t, Actual: %t", true, false)
+	}
+}
