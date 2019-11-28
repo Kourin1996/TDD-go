@@ -1,11 +1,16 @@
 package money
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/Kourin1996/TDD-go/src/expression"
+)
 
 type IMoney interface {
 	GetAmount() int
 	GetCurrency() string
 	Times(int) IMoney
+	Plus(IMoney) expression.Expression
 }
 
 func Equals(a, b IMoney) bool {
@@ -31,6 +36,10 @@ func (this *Money) GetCurrency() string {
 
 func (this *Money) Times(multiplier int) IMoney {
 	return NewMoney(this.amount*multiplier, this.currency)
+}
+
+func (this *Money) Plus(addend IMoney) expression.Expression {
+	return NewMoney(this.amount+addend.GetAmount(), this.currency)
 }
 
 func (this *Money) ToString() string {
